@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import MovieCard from "./MovieCard";
 
 const MovieList = props => {
   const [movies, setMovies] = useState([]);
@@ -29,7 +30,6 @@ const MovieList = props => {
 
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
-  console.log(stars);
   return (
     <div className="movie-card">
       <Link to={`/movies/${movie.id}`}>
