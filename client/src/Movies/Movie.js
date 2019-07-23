@@ -3,19 +3,16 @@ import axios from "axios";
 
 const Movie = props => {
   const [movie, setMovie] = useState();
-  console.log(props);
+  const id = props.match.params.id;
 
   useEffect(() => {
-    const id = props.match.params.id;
-
     axios.get(`http://localhost:5000/api/movies/${id}`).then(response => {
       setMovie(response.data);
     });
-  }, []);
+  }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
   const saveMovie = () => {
-    console.log(props);
     const addToSavedList = props.addToSavedList;
     addToSavedList(movie);
   };
